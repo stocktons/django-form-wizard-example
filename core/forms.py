@@ -1,5 +1,5 @@
 from django import forms
-from core.models import Guest
+from core.models import Guest, Business, Booking
 
 class GuestDetailForm(forms.ModelForm):
     BOOL_CHOICES = [(True, "Yes"), (False, "No")]
@@ -11,3 +11,14 @@ class GuestDetailForm(forms.ModelForm):
     class Meta:
         model = Guest
         fields = ("first_name", "last_name", "email", "phone")
+
+class BusinessDetailForm(forms.ModelForm):
+    class Meta:
+        model = Business
+        fields = ("name",)
+
+class BookingDetailForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = ("room_type", "date", "number_of_nights")
+        widgets = {"date": forms.DateInput(attrs={"type": "date"})}
