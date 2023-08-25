@@ -3,5 +3,5 @@ from core import views
 
 
 urlpatterns = [
-    path('', views.index),
+    path('', views.BookingWizardView.as_view()),
 ]
